@@ -8,6 +8,15 @@
         </link>
     </head>
     <body>
+
+        <form name="build" action="{{url_for('build')}}" method="post">
+            <input type="submit" value="build" />
+        </form>
+
+        <form name="clean" action="{{url_for('clean')}}" method="post">
+            <input type="submit" value="clean" />
+        </form>
+
         <p>
             -------大Android--------
         </p>
@@ -159,10 +168,6 @@
             <input type="text" name="dakun_today" />
             <br />
             <input type="submit" value="save" />
-        </form>
-
-        <form name="build" action="{{url_for('build')}}" method="post">
-            <input type="submit" value="build" />
         </form>
     </body>
 </html>

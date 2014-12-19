@@ -112,15 +112,57 @@ def dakun():
 
 @app.route('/build', methods=['POST'])
 def build():
-	f = open('data/android.md', 'r')
-	rs = f.read();
-	f.close()
+	rs = '=====>Android' + '\n' + '<br/>'
+	f_android = open('data/android.md', 'r')
+	rs = rs + f_android.read() + '\n' + '<br/>';
+	f_android.close()
+
+	rs = rs + '=====>iOS' + '\n' + '<br/>'
+	f_iOS = open('data/ios.md', 'r')
+	rs = rs + f_iOS.read() + '\n' + '<br/>';
+	f_iOS.close()
+
+	rs = rs + '=====>web' + '\n' + '<br/>'
+	f_web = open('data/web.md', 'r')
+	rs = rs + f_web.read() + '\n' + '<br/>';
+	f_web.close()
+
 	return rs
 
+@app.route('/clean', methods=['POST'])
+def clean():
+	f_android = open('data/android.md', 'wb')
+	f_android.truncate()
+	f_iOS = open('data/ios.md', 'wd')
+	f_iOS.truncate()
+	f_web = open('data/web.md', 'wb')
+	f_web.truncate()
+	return 'clean'
+
+
 def save(member):
+	if (member.name in web_list):
+		save_to_web(member)
+	elif (member.name in android_list):
+		save_to_android(member)
+	elif (member.name in iOS_list):
+		save_to_ios(member)
+
+def save_to_android(member):
 	file = open('data/android.md', 'a')
 	file.write(member.build() + '\n' + '<br/><br/>' + '\n')
-	file.close( )
+	file.close()
+
+def save_to_ios(member):
+	file = open('data/ios.md', 'a')
+	file.write(member.build() + '\n' + '<br/><br/>' + '\n')
+	file.close()
+
+def save_to_web(member):
+	file = open('data/web.md', 'a')
+	file.write(member.build() + '\n' + '<br/><br/>' + '\n')
+	file.close()
+
 
 if __name__ == '__main__':
 	app.debug = True
