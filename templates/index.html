@@ -8,22 +8,29 @@
         </link>
     </head>
     <body>
+        <div>
+            <div style='float: left; margin-left: 50px'>
+                <p style='font-size: 19px;'>可能是东半球最好用的日报发送应用</br></p>
+                <p style='font-size: 14px; font-style: italic; margin-left: 1em'>
+                    - github地址:https://github.com/Iam42/Daily-Report<br/>
+                    - powered by: zhanggan</br>
+                    - 如果对你有帮助，就请我喝杯啤酒吧，支付宝 --->
+                </p>
+            </div>
+            <div>
+                <img src="../static/alipay.png" style='width: 120px; margin-left: 20px'>
+            </div>
+        </div>
 
-        <p>
-            可能是东半球最好用的日报发送应用</br>
-            - github地址:https://github.com/Iam42/Daily-Report<br/>
-            - powered by: zhanggan</br>
-            - 如果对你有帮助，就请我喝杯啤酒吧，支付宝：
-        </p>
-        <img src="../static/alipay.png" style='width: 200px'>
+        <div style='margin-left: 20px'>
+            <form name="build" action="{{url_for('build')}}" method="post">
+                <input type="submit" value="生成日报" />
+            </form>
 
-        <form name="build" action="{{url_for('build')}}" method="post">
-            <input type="submit" value="build" />
-        </form>
-
-        <form name="clean" action="{{url_for('clean')}}" method="post">
-            <input type="submit" value="clean" />
-        </form>
+            <form name="clean" action="{{url_for('clean')}}" method="post">
+                <input type="submit" value="清除记录" />
+            </form>
+        </div>
 
         <p>
             -------大Android--------
@@ -34,10 +41,10 @@
         </p>
         <form name="fancha" action="{{url_for('fancha')}}" method="post">
             昨天: 
-            <input type="text" name="fancha_yesterday" />
+            <textarea name="fancha_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="fancha_today" />
+            <textarea name="fancha_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -47,10 +54,10 @@
         </p>
         <form name="jiufeng" action="{{url_for('jiufeng')}}" method="post">
             昨天: 
-            <input type="text" name="jiufeng_yesterday" />
+            <textarea name="jiufeng_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="jiufeng_today" />
+            <textarea name="jiufeng_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -60,10 +67,10 @@
         </p>
         <form name="xueya" action="{{url_for('xueya')}}" method="post">
             昨天: 
-            <input type="text" name="xueya_yesterday" />
+            <textarea name="xueya_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="xueya_today" />
+            <textarea name="xueya_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -73,10 +80,10 @@
         </p>
         <form name="boer" action="{{url_for('boer')}}" method="post">
             昨天: 
-            <input type="text" name="boer_yesterday" />
+            <textarea name="boer_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="boer_today" />
+            <textarea name="boer_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -86,10 +93,10 @@
         </p>
         <form name="liubai" action="{{url_for('liubai')}}" method="post">
             昨天: 
-            <input type="text" name="liubai_yesterday" />
+            <textarea name="liubai_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="liubai_today" />
+            <textarea name="liubai_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -102,10 +109,10 @@
         </p>
         <form name="jifan" action="{{url_for('jifan')}}" method="post">
             昨天: 
-            <input type="text" name="jifan_yesterday" />
+            <textarea name="jifan_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="jifan_today" />
+            <textarea name="jifan_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -115,10 +122,10 @@
         </p>
         <form name="xinlie" action="{{url_for('xinlie')}}" method="post">
             昨天: 
-            <input type="text" name="xinlie_yesterday" />
+            <textarea name="xinlie_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="xinlie_today" />
+            <textarea name="xinlie_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -128,10 +135,10 @@
         </p>
         <form name="ronghui" action="{{url_for('ronghui')}}" method="post">
             昨天: 
-            <input type="text" name="ronghui_yesterday" />
+            <textarea name="ronghui_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="ronghui_today" />
+            <textarea name="ronghui_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -141,10 +148,10 @@
         </p>
         <form name="xinpeng" action="{{url_for('xinpeng')}}" method="post">
             昨天: 
-            <input type="text" name="xinpeng_yesterday" />
+            <textarea name="xinpeng_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="xinpeng_today" />
+            <textarea name="xinpeng_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -154,10 +161,10 @@
         </p>
         <form name="lianjie" action="{{url_for('lianjie')}}" method="post">
             昨天: 
-            <input type="text" name="lianjie_yesterday" />
+            <textarea name="lianjie_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="lianjie_today" />
+            <textarea name="lianjie_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
@@ -170,10 +177,10 @@
         </p>
         <form name="dakun" action="{{url_for('dakun')}}" method="post">
             昨天: 
-            <input type="text" name="dakun_yesterday" />
+            <textarea name="dakun_yesterday" rows="1" cols="120"></textarea>
             <br />
             今天: 
-            <input type="text" name="dakun_today" />
+            <textarea name="dakun_today" rows="1" cols="120"></textarea>
             <br />
             <input type="submit" value="save" />
         </form>
