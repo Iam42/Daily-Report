@@ -7,6 +7,6 @@ class Member(object):
 		self.today = today
 
 	def build(self):
-		return self.name + "\n" + "昨天: " + self.yesterday + "\n" + "今天: " + self.today
+		return self.name + "<br/>\n" + "昨天: " + self.yesterday + "<br/>\n" + "今天: " + self.today
 		
 		
