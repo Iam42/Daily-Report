@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <title>daily report</title>
+        </link>
+    </head>
+    <body>
+        <p>
+            写日报！！！！！！！！！
+        </p>
+
+        <p>
+            小学徒泛槎：
+        </p>
+        <form name="fancha" action="{{url_for('fancha')}}" method="post">
+            昨天: 
+            <input type="text" name="fancha_yesterday" />
+            <br />
+            今天: 
+            <input type="text" name="fancha_today" />
+            <br />
+            <input type="submit" value="save" />
+        </form>
+
+        <p>
+            九风：
+        </p>
+        <form name="jiufeng" action="{{url_for('jiufeng')}}" method="post">
+            昨天: 
+            <input type="text" name="jiufeng_yesterday" />
+            <br />
+            今天: 
+            <input type="text" name="jiufeng_today" />
+            <br />
+            <input type="submit" value="save" />
+        </form>
+
+        <form name="build" action="{{url_for('build')}}" method="post">
+            <input type="submit" value="build" />
+        </form>
+    </body>
+</html>
