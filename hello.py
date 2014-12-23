@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*- 
 from flask import Flask, render_template, request, url_for
 from model.member import Member 
-import sys
+import sys, random
 
 default_encoding = 'utf-8'
 if sys.getdefaultencoding() != default_encoding:
@@ -13,6 +13,7 @@ app = Flask(__name__)
 android_list = ['泛槎', '九风', '学崖', '泊尔', '陆柏']
 iOS_list = ['济凡', '星烈', '融汇', '新鹏', '廉洁']
 web_list = ['大昆']
+next_list = ['济凡', '九风', '学崖', '泊尔', '陆柏', '星烈', '融汇', '新鹏', '廉洁', '大昆']
 
 @app.route('/')
 def test():
@@ -127,7 +128,7 @@ def build():
 	rs = rs + f_web.read() + '\n' + '<br/>';
 	f_web.close()
 
-	return rs
+	return rs + next();
 
 @app.route('/clean', methods=['POST'])
 def clean():
@@ -138,6 +139,9 @@ def clean():
 	f_web = open('data/web.md', 'wb')
 	f_web.truncate()
 	return 'clean'
+
+def next():
+	return "</br></br>明天日会主持人：" + random.choice(next_list);
 
 
 def save(member):
