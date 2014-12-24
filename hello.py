@@ -1,6 +1,7 @@
 #-*-coding:utf-8-*- 
 from flask import Flask, render_template, request, url_for
 from model.member import Member 
+from utils.db_utils import *
 import sys, random
 
 default_encoding = 'utf-8'
@@ -113,32 +114,16 @@ def dakun():
 
 @app.route('/build', methods=['POST'])
 def build():
-	rs = '=====>Android' + '\n' + '<br/>'
-	f_android = open('data/android.md', 'r')
-	rs = rs + f_android.read() + '\n' + '<br/>';
-	f_android.close()
+	rs = '=====>Android' + '<br/>'
+	rs = rs + get_report_today('android');
 
-	rs = rs + '=====>iOS' + '\n' + '<br/>'
-	f_iOS = open('data/ios.md', 'r')
-	rs = rs + f_iOS.read() + '\n' + '<br/>';
-	f_iOS.close()
+	rs = rs + '=====>iOS' + '<br/>'
+	rs = rs + get_report_today('ios') + '<br/>';
 
-	rs = rs + '=====>web' + '\n' + '<br/>'
-	f_web = open('data/web.md', 'r')
-	rs = rs + f_web.read() + '\n' + '<br/>';
-	f_web.close()
+	rs = rs + '=====>web' + '<br/>'
+	rs = rs + get_report_today('web') + '<br/>';
 
 	return rs + next();
-
-@app.route('/clean', methods=['POST'])
-def clean():
-	f_android = open('data/android.md', 'wb')
-	f_android.truncate()
-	f_iOS = open('data/ios.md', 'wd')
-	f_iOS.truncate()
-	f_web = open('data/web.md', 'wb')
-	f_web.truncate()
-	return 'clean'
 
 def next():
 	return "</br></br>明天日会主持人：" + random.choice(next_list);
@@ -146,27 +131,11 @@ def next():
 
 def save(member):
 	if (member.name in web_list):
-		save_to_web(member)
+		save_2_database_web(member)
 	elif (member.name in android_list):
-		save_to_android(member)
+		save_2_database_android(member)
 	elif (member.name in iOS_list):
-		save_to_ios(member)
-
-def save_to_android(member):
-	file = open('data/android.md', 'a')
-	file.write(member.build() + '\n' + '<br/><br/>' + '\n')
-	file.close()
-
-def save_to_ios(member):
-	file = open('data/ios.md', 'a')
-	file.write(member.build() + '\n' + '<br/><br/>' + '\n')
-	file.close()
-
-def save_to_web(member):
-	file = open('data/web.md', 'a')
-	file.write(member.build() + '\n' + '<br/><br/>' + '\n')
-	file.close()
-
+		save_2_database_ios(member)
 
 if __name__ == '__main__':
 	app.debug = True
