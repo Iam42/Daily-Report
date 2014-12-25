@@ -12,6 +12,8 @@ def get_name_by_id(id):
 		return '泊尔'
 	if id == 'liubai':
 		return '陆柏'
+	if id == 'jifan':
+		return '济凡'
 	if id == 'xinlie':
 		return '星烈'
 	if id == 'ronghui':
